@@ -1,7 +1,7 @@
 import React from "react";
 
-const Form = () => {
-  return <div>Form</div>;
+const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+  return <section className="w-f">Form</section>;
 };
 
 export default Form;
