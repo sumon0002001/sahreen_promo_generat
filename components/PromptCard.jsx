@@ -6,10 +6,16 @@ import { usePathname, useRouter } from "next/navigation";
 
 const PromptCard = ({ prompt, handleTagClick, handleEdit, handleDelete }) => {
   const [copied, setCopied] = useState("");
+
+  const handleCopy = () => {
+    setCopied(prompt.prompt);
+    navigator.clipboard.writeText(prompt.prompt);
+    setTimeout(() => setCopied(false), 3000);
+  };
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
-        <div>
+        <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
           <Image
             src={prompt.creator.image}
             alt="user_image"
@@ -26,7 +32,7 @@ const PromptCard = ({ prompt, handleTagClick, handleEdit, handleDelete }) => {
             </p>
           </div>
         </div>
-        <div className="copy_btn" onClick={() => {}}>
+        <div className="copy_btn" onClick={handleCopy}>
           <Image
             src={
               copied === prompt.prompt
@@ -39,6 +45,13 @@ const PromptCard = ({ prompt, handleTagClick, handleEdit, handleDelete }) => {
           />
         </div>
       </div>
+      <p className="my-4 font-satoshi text-sm text-gray-700">{prompt.prompt}</p>
+      <p
+        className="font-inter text-sm blue_gradient cursor-pointer"
+        onClick={() => handleTagClick && handleTagClick(prompt.tag)}
+      >
+        {prompt.tag}
+      </p>
     </div>
   );
 };
