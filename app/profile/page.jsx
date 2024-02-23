@@ -1,4 +1,5 @@
 "use client";
+
 import Profile from "@components/Profile";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -18,7 +19,7 @@ const MyProfile = () => {
       setMyPosts(data);
     };
     if (session?.user.id) fetchPrompts();
-  }, []);
+  }, [session?.user.id]);
 
   const handleEdit = () => {};
   const handleDelete = async () => {};
