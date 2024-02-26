@@ -12,13 +12,13 @@ const MyProfile = () => {
   const [myPosts, setMyPosts] = useState([]);
   useEffect(() => {
     // Fetch post from the server or API
-    const fetchPrompts = async () => {
+    const fetchPosts = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/posts`);
       const data = await response.json();
 
       setMyPosts(data);
     };
-    if (session?.user.id) fetchPrompts();
+    if (session?.user.id) fetchPosts();
   }, [session?.user.id]);
 
   const handleEdit = () => {};
