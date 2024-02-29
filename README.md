@@ -7,6 +7,7 @@
   </div>
   <div>
   <img src="./public/assets/images/screen.png" alt="react" />
+   <img src="./public/assets/images/screen2.png" alt="react" />
   </div>
 
   <h3 align="center">Sahreen AI Prompt Sharing Application</h3>
